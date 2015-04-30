@@ -47,21 +47,21 @@ struct ngx_pool_large_s {
 
 
 typedef struct {
-    u_char               *last;
-    u_char               *end;
-    ngx_pool_t           *next;
-    ngx_uint_t            failed;
-} ngx_pool_data_t;
+    u_char               *last;     //内存池分配到此处，下次分配从这里开始
+    u_char               *end;      //内存池结束位置
+    ngx_pool_t           *next;     //指向下一块内存池
+    ngx_uint_t            failed;   //内存池分配失败次数
+} ngx_pool_data_t;                  //内存池数据块位置信息
 
 
-struct ngx_pool_s {
-    ngx_pool_data_t       d;
-    size_t                max;
-    ngx_pool_t           *current;
+struct ngx_pool_s {                 //内存池结构
+    ngx_pool_data_t       d;        //内存池数据块
+    size_t                max;      //内存池数据块的最大值
+    ngx_pool_t           *current;  //指向当前内存池
     ngx_chain_t          *chain;
-    ngx_pool_large_t     *large;
-    ngx_pool_cleanup_t   *cleanup;
-    ngx_log_t            *log;
+    ngx_pool_large_t     *large;    //大块内存链表，当前分配空间超过max
+    ngx_pool_cleanup_t   *cleanup;  //释放内存池的回调
+    ngx_log_t            *log;      //日志
 };
 
 
