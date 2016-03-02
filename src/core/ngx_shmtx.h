@@ -38,12 +38,12 @@ typedef struct {
 
 
 ngx_int_t ngx_shmtx_create(ngx_shmtx_t *mtx, ngx_shmtx_sh_t *addr,
-    u_char *name);
-void ngx_shmtx_destroy(ngx_shmtx_t *mtx);
-ngx_uint_t ngx_shmtx_trylock(ngx_shmtx_t *mtx);
-void ngx_shmtx_lock(ngx_shmtx_t *mtx);
-void ngx_shmtx_unlock(ngx_shmtx_t *mtx);
-ngx_uint_t ngx_shmtx_force_unlock(ngx_shmtx_t *mtx, ngx_pid_t pid);
+    u_char *name);                                                      //互斥锁的创建
+void ngx_shmtx_destroy(ngx_shmtx_t *mtx);                               //销毁
+ngx_uint_t ngx_shmtx_trylock(ngx_shmtx_t *mtx);                         //尝试加锁
+void ngx_shmtx_lock(ngx_shmtx_t *mtx);                                  //加锁
+void ngx_shmtx_unlock(ngx_shmtx_t *mtx);                                //解锁
+ngx_uint_t ngx_shmtx_force_unlock(ngx_shmtx_t *mtx, ngx_pid_t pid);     //强制解锁
 
 
 #endif /* _NGX_SHMTX_H_INCLUDED_ */
