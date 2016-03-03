@@ -27,7 +27,7 @@ typedef struct ngx_shm_zone_s  ngx_shm_zone_t;
 typedef ngx_int_t (*ngx_shm_zone_init_pt) (ngx_shm_zone_t *zone, void *data);
 
 struct ngx_shm_zone_s {
-    void                     *data;
+    void                     *data;     // nginx的共享内存的实际数据
     ngx_shm_t                 shm;      //nginx的共享内存与操作系统接口的数据结构
     ngx_shm_zone_init_pt      init;     //nginx的共享内存回调函数
     void                     *tag;      //共享内存解决冲突唯一标识

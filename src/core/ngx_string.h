@@ -14,8 +14,8 @@
 
 
 typedef struct {
-    size_t      len;
-    u_char     *data;
+    size_t      len;    // 字符串的有效长度
+    u_char     *data;   // 字符串起始地址
 } ngx_str_t;
 
 
